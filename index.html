@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Bogos Binted?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      font-size: 2rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #444;
+      color: #fff;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #666;
+    }
+    #errorScreen, #imageScreen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #000;
+      color: #f00;
+    }
+    #imageScreen {
+      background: #000;
+      color: #fff;
+    }
+    #imageScreen img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div id="mainScreen">
+    <h1>Bogos Binted?</h1>
+    <div class="buttons">
+      <button id="alien">👽</button>
+      <button id="noBtn">Nein</button>
+    </div>
+  </div>
+
+  <!-- Error Screen -->
+  <div id="errorScreen">
+    <h1>❌ ERROR 404: Bogos NOT Binted</h1>
+    <button onclick="location.reload()">↩ Zurück</button>
+  </div>
+
+  <!-- Image Screen -->
+  <div id="imageScreen">
+    <img src="4f9d1fe8-7622-4f58-82bd-7ef5e030a62d.png" alt="Funny Cat Meme">
+    <button onclick="location.reload()" style="margin-top:20px">↩ Zurück</button>
+  </div>
+
+  <script>
+    const alienBtn = document.getElementById("alien");
+    const noBtn = document.getElementById("noBtn");
+    const mainScreen = document.getElementById("mainScreen");
+    const errorScreen = document.getElementById("errorScreen");
+    const imageScreen = document.getElementById("imageScreen");
+
+    noBtn.addEventListener("click", () => {
+      mainScreen.style.display = "none";
+      errorScreen.style.display = "flex";
+    });
+
+    alienBtn.addEventListener("click", () => {
+      mainScreen.style.display = "none";
+      imageScreen.style.display = "flex";
+    });
+  </script>
+</body>
+</html>
